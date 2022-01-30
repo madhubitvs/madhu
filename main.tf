@@ -22,6 +22,7 @@ terraform {
 
 resource "aws_instance" "my-ec2-4m-vpc" {
   ami                    = "${var.AMI}"
+//    ami 		 = "${lookup(var.AMI, var.AWS_REGION)}" 
   instance_type          = "${var.TYPE["t2micro"]}"
   key_name               = "ec2-mat-key"
   monitoring             = true
@@ -31,8 +32,8 @@ resource "aws_instance" "my-ec2-4m-vpc" {
 
    tags = {
     Terraform   = "true"
-    Environment = "Terra"
-    Name = "mat_tera-instance"
+    Environment = "Dev"
+    Name = "my_Dev-instance"
   }
 }
 
